@@ -3,7 +3,6 @@
 #define MAXLINE 1000 /* максимална дължина на входния ред */
 
 int getline(char line[], int maxline);
-void copy(char to[], char from[]);
 
 /* Упражнение 1.17.  Отпечатва всички входни редове, които са по-дълги
    от 80 символа. */
