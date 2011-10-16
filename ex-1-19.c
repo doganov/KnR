@@ -5,6 +5,7 @@
 int getline(char line[], int maxline);
 int length(char s[]);
 void trimr(char s[]);
+void reverse(char s[]);
 
 /* Упражнение 1.19.  Напишете функция reverse(s), която обръща
    символния низ s.  Използвайте я, за да напишете програма, която
@@ -17,8 +18,8 @@ main()
 
   while ((len = getline(line, MAXLINE)) > 0) {
     trimr(line);
-    if (length(line) > 0)
-      printf("%s\n", line);
+    reverse(line);
+    printf("%s\n", line);
   }
   return 0;
 }
@@ -61,4 +62,22 @@ void trimr(char s[]) {
        i >= 0 && ((s[i] == ' ') || (s[i] == '\t') || (s[i] == '\n'));
        --i)
     s[i] = '\0';
+}
+
+/* reverse: обръща реда на символите в низа s. */
+void reverse(char s[]) {
+  int len;
+  int half;
+  int i;
+  char tmp;
+
+  len = length(s);
+
+  half = len / 2;
+  
+  for (i = 0; i < half; ++i) {
+    tmp = s[i];
+    s[i] = s[len - i - 1];
+    s[len - i - 1] = tmp;
+  }
 }
